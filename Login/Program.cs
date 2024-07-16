@@ -122,7 +122,7 @@ namespace Login
             string ageInput = Console.ReadLine().ToString();
 
             // question 2
-            Console.Clear() ;
+            Console.Clear();
             Console.SetCursorPosition((Console.WindowWidth / 2) - ((question2.Length) / 2), ((Console.WindowHeight / 2) - 2));
             typeString(question2, 30);
 
@@ -132,8 +132,14 @@ namespace Login
 
 
             string yearInput = Console.ReadLine().ToString();
+            if (int.Parse(ageInput) < 18)
+            {
+                Console.Clear();
+                typeString_middle(Console.WindowHeight / 2, "you are too young", 30);
+                return false;
+            }
 
-            if (year - int.Parse(ageInput) == int.Parse(yearInput))
+            else if (year - int.Parse(ageInput) == int.Parse(yearInput))
             {
                 Console.Clear();
                 typeString_middle(Console.WindowHeight / 2, "you completed our quiz", 30);
